@@ -3,6 +3,8 @@
 /public/bundles/
 /var/
 /vendor/
+/temp/
+temp/
 ###< symfony/framework-bundle ###
 
 ###> romaricp ###
