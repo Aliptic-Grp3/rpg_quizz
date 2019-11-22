@@ -9,5 +9,5 @@ Browsergame sur un concept de RPG et de Quizz où les combats sont remplacés pa
     * Une bonne réponse => Dégâts sur le monstre
     * Une mauvaise réponse => Dégâts sur le personnage
 * Nombre que questions limité par jour
-##Installation
+## Installation
 `coming soon`
