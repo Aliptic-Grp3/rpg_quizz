@@ -1,4 +1,4 @@
-#![Logo temporaire du jeu](public/assets/img/rpgquizz.png) RPG Quizz 
+# ![](public/assets/img/rpgquizz.png) RPG Quizz 
 
 
 Projet de groupe sur Symfony.
