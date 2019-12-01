@@ -4,7 +4,9 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
-    </head>
+		<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/css-rpg-quizz.css') }}">
+	</head>
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
