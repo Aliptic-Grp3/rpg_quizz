@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+	<div  class="container">
+		<h1 class="entete-page">Register</h1>
+
+		{{ form_start(registrationForm) }}
+			<div class="form-group">
+				{{ form_label(registrationForm.username) }}
+				<div class="col-sm-9 float-right">
+					{{ form_widget(registrationForm.username) }}			
+				</div>
+			</div>
+			<div class="form-group">
+				{{ form_label(registrationForm.plainPassword) }}
+				<div class="col-sm-9 float-right">
+					{{ form_widget(registrationForm.plainPassword) }}			
+				</div>
+			</div>
+		
+			
+			{{ form_row(registrationForm.agreeTerms) }}
+
+			<div class="btn-connexion">
+				<button class="btn">Enregistrer.</button>
+			</div>
+		{{ form_end(registrationForm) }}
+	</div>
+{% endblock %}
