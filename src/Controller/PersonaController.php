@@ -43,8 +43,7 @@ class PersonaController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        //array('owner' => $user->getId())
-        $user = $this->getUser();
+
         $persona = new Persona();
         $form = $this->createForm(PersonaType::class, $persona);
         $form->handleRequest($request);

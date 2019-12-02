@@ -8,6 +8,9 @@
 		<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/css-rpg-quizz.css') }}">
 	</head>
     <body>
+    <a href="{{ path('acceuil') }}" class="btn btn-success">Home</a>
+    <br>
+    <span>{{ 'user.pseudo'|trans }}</span>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
