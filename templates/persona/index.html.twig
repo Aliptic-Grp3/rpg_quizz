@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Persona index{% endblock %}
+
+{% block body %}
+    <h1>Persona index</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                {% if app.user and persona %}
+                <div class="card">
+                    <div class="card-img">
+                        <img src="{{ persona.avatar }}" class="rounded-circle border border-dark" width="75" height="75">
+                    </div>
+                    <div class="card-header">
+                        <h2 class="font-weight-bold">{% if persona.sex == 1 %}
+                                &#9794;
+                            {% elseif persona.sex == 2 %}&#9792;
+                            {% elseif persona.sex == 3 %}&#9893;
+                            {% endif %} {{ persona.name }}</h2>
+                    <div class="card-body">
+                        Personnage niveau {{ persona.level }}.
+                    </div>
+                            {#{{ persona.id }}#}
+
+                            <a href="{{ path('persona_show', {'id': persona.id}) }}" class="btn btn-primary">show</a>
+                            <a href="{{ path('persona_edit', {'id': persona.id}) }}" class="btn btn-primary">edit</a>
+                    </div>
+                </div>
+                        {% else %}
+                            <tr>
+                                <td colspan="6">You don't have any Persona</td><br>
+                                <a href="{{ path('persona_new') }}" class="btn btn-primary">Create One</a>
+                            </tr>
+                        {% endif %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

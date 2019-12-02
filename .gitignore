@@ -5,6 +5,7 @@
 /vendor/
 /temp/
 temp/
+.env.local
 ###< symfony/framework-bundle ###
 
 ###> romaricp ###
