@@ -33,15 +33,20 @@ class Users implements UserInterface
     private $roles = [];
 
 	public function __construct()
-          {
-              $this->roles = [self::ROLE_USER];
-      	}
+                            {
+                                $this->roles = [self::ROLE_USER];
+                        	}
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Persona", mappedBy="owner", cascade={"persist", "remove"})
+     */
+    private $persona;
 
     public function getId(): ?int
     {
@@ -114,5 +119,36 @@ class Users implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+
+    public function setOwnPersona(?Persona $own_persona): self
+    {
+        $this->own_persona = $own_persona;
+
+        return $this;
+    }
+
+    public function getPersona(): ?Persona
+    {
+        return $this->persona;
+    }
+
+    public function setPersona(Persona $persona): self
+    {
+        $this->persona = $persona;
+
+        // set the owning side of the relation if necessary
+        if ($persona->getOwner() !== $this) {
+            $persona->setOwner($this);
+        }
+
+        return $this;
+    }
+
+
+    public function __toString()
+    {
+        return $this->username;
     }
 }
