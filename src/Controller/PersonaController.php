@@ -50,6 +50,7 @@ class PersonaController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $persona->setOwner($this->getUser());
             $entityManager->persist($persona);
             $entityManager->flush();
 

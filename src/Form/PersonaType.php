@@ -6,6 +6,8 @@ use App\Entity\Persona;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 
 class PersonaType extends AbstractType
 {
@@ -13,10 +15,16 @@ class PersonaType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('level')
-            ->add('avatar')
-            ->add('sex')
-            ->add('owner')
+            //->add('level')
+            ->add('avatar', UrlType::class)
+            ->add('sex', ChoiceType::class, [
+                'choices' => [
+                    'Man' => 1,
+                    'Woman' => 2,
+                    'Other' => 3,
+                ],
+            ])
+            //->add('owner')
         ;
     }
 

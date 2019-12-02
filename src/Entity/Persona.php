@@ -98,7 +98,7 @@ class Persona
     }
 
 
-    public function setUsers(?Users $users): self
+    /*public function setUsers(?Users $users): self
     {
         $this->users = $users;
 
@@ -109,7 +109,7 @@ class Persona
         }
 
         return $this;
-    }
+    }*/
 
     public function getOwner(): ?Users
     {
@@ -121,5 +121,9 @@ class Persona
         $this->owner = $owner;
 
         return $this;
+    }
+    public function __construct()
+    {
+        $this->level = 1 ;
     }
 }
