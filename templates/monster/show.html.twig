@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Monster{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+
+                        <h2>{{ monster.Name }}</h2>
+                        <span>Niveau {{ monster.Level}}</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-img">
+                            <img  src="{{ monster.Image }}" width="300" height="300" alt="image">
+                        </div>
+
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-block btn-danger">Affronter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="{{ path('monster_index') }}" class="btn btn-dark">back to list</a>
+
+    <a href="{{ path('monster_edit', {'id': monster.id}) }}" class="btn btn-dark">edit</a>
+
+    {{ include('monster/_delete_form.html.twig') }}
+{% endblock %}

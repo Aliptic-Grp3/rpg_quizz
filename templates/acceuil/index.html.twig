@@ -3,24 +3,22 @@
 {% block title %}Hello AcceuilController!{% endblock %}
 
 {% block body %}
+
+	{% if app.user %}
+		<a class="" href="{{ path('persona_index') }}">Personnage</a>
+		<a class="" href="{{ path('monster_show', { 'id' : 1 }  ) }}">Monstre</a>
+	{% endif %}
+
+
 <div class="container">
 	{% if app.user %}
 		<div class="mb-3">
-			Bonjour {{ app.user.username }}<br><a href="{{ path('app_logout') }}" class="btn btn-danger">Logout</a>
+			Bonjour {{ app.user.username|capitalize}}<br><a href="{{ path('app_logout') }}" class="btn btn-danger">Logout</a>
 		</div>
-		{% else  %}
-			<div class="mb-3">
-				<a href="{{ path('app_login') }}" class="btn btn-primary">Login</a>
-			</div>
+	{% else  %}
+		<div class="mb-3">
+			<a href="{{ path('app_login') }}" class="btn btn-primary">Login</a>
+		</div>
 	{% endif %}
-	<div class="row">
-		<div class="col-2">
-
-			{% if app.user %}
-				<br>
-				<a href="{{ path('persona_index') }}">Personnage</a>
-			{% endif %}
-		</div>
-	</div>
 </div>
 {% endblock %}
