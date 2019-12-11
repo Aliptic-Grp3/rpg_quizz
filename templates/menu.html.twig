@@ -1,0 +1,18 @@
+<div class="container">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div id="premier_partie_menu">
+                        {% if app.user.persona is not empty %}
+                            <a class="navbar-brand" href="{{ path('persona_index') }}">
+                                    <img src="{{ app.user.persona.avatar }}" class="image_menu rounded-pill" alt="">
+                            </a>
+                        {% endif %}
+			<a class="navbar-brand" href="{{ path('acceuil') }}">Bonjour {{ app.user.username }} </a>
+                        {% if app.user.persona is not empty %}
+                            <a class="navbar-brand" href="#">( level {{ app.user.persona.level }} )</a>
+                        {% endif %}
+		</div>
+		<div id="deuxieme_partie_menu" class="my-2 my-lg-0">
+			<a href="{{ path('app_logout') }}" class="btn btn-light">Deconnexion</a>
+		</div>
+	</nav
+</div>
