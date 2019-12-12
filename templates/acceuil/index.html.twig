@@ -4,23 +4,34 @@
 
 {% block body %}
 <div class="container">
-	{% if app.user %}
-		<div class="mb-3">
-			Bonjour {{ app.user.username }}<br><a href="{{ path('app_logout') }}" class="btn btn-danger">Logout</a>
-		</div>
-		{% else  %}
-			<div class="mb-3">
-				<a href="{{ path('app_login') }}" class="btn btn-primary">Login</a>
-			</div>
-	{% endif %}
-	<div class="row">
-		<div class="col-2">
+    {% if app.user %}
+        {% if app.user.persona is empty %}
+            {# Si l'utilisateur n'a pas de perso, il en choisit un #}
+            <div class="centrer">
+                <p> Avant de commencer à jouer, veuillez créer votre avatar. </p>
+                <a class='btn btn-info' href='{{ path('persona_new') }}'> Créer un personnage. </a>
+            </div>
+        {% else %}
+            {# Si l'utilisateur a un personnage alors on joue #}
+            <div class="row">
+                <div id="image_acceuil" class="col-6">
+                    <img src="{{ app.user.persona.avatar }}" class="rounded taille_image_acceuil" >
+                </div>
 
-			{% if app.user %}
-				<br>
-				<a href="{{ path('persona_index') }}">Personnage</a>
-			{% endif %}
-		</div>
-	</div>
+                <div id="action_acceuil" class="col-4 boutton_jeu">
+                    <div class="margin_1">
+                        <a class='btn btn-info' href='{{ path('combattre') }}'> Combat !!! </a>
+                    </div>
+                    <div class="margin_1">
+                        <a class='btn btn-info' href='{# { path('') } #}'> Entrainement </a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% else  %}
+        <div class="mb-3">
+                <a href="{{ path('app_login') }}" class="btn btn-primary">Login</a>
+        </div>
+    {% endif %}
 </div>
 {% endblock %}

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,12 @@ class Persona
      * @ORM\JoinColumn(nullable=false)
      */
     private $owner;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Jouer", inversedBy="idPersona")
+     */
+    private $idJouer;
+
     // 1=man - 2=woman - 3=other
     
 
@@ -126,4 +134,17 @@ class Persona
     {
         $this->level = 1 ;
     }
+
+    public function getIdJouer(): ?Jouer
+    {
+        return $this->idJouer;
+    }
+
+    public function setIdJouer(?Jouer $idJouer): self
+    {
+        $this->idJouer = $idJouer;
+
+        return $this;
+    }
+
 }

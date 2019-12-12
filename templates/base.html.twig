@@ -8,9 +8,11 @@
 		<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/css-rpg-quizz.css') }}">
 	</head>
     <body>
-    <a href="{{ path('acceuil') }}" class="btn btn-success">Home</a>
-    <a href="{{ path('cgu') }}" class="btn btn-outline-info">CGU</a>
-    <a href="{{ path('mentions_legales') }}" class="btn btn-outline-info">Mentions Légales</a>
+	{% if app.user %}
+		{% include 'menu.html.twig' %}
+	{% else %}
+		<a href="{{ path('acceuil') }}" class="btn btn-success">Home</a>
+	{% endif %}
     <br>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}

@@ -19,7 +19,7 @@ class PersonaController extends AbstractController
 
 
     /**
-     * @Route("/", name="persona_index", methods={"GET"})
+     * @Route("/persona_index", name="persona_index", methods={"GET"})
      */
     public function index(PersonaRepository $personaRepository): Response
     {

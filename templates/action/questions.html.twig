@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ActionController!{% endblock %}
+
+{% block body %}
+
+	{{ controller_name }}
+
+	 {{ form_start(formQuestion) }}
+		{{ form_widget(formQuestion) }}
+	{{ form_end(formQuestion) }}
+
+{% endblock %}
