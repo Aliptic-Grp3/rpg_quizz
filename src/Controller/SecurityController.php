@@ -34,4 +34,12 @@ class SecurityController extends AbstractController
 		return $this->redirectToRoute('app_login');
         //throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
     }
+
+    /**
+     * @Route("/account", name="app_account")
+     */
+    public function account()
+    {
+        return $this->render('security/edit.html.twig');
+    }
 }

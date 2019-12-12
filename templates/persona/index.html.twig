@@ -5,7 +5,9 @@
 {% block body %}
     <h1>Persona index</h1>
 
-    <div class="container">
+
+
+    {#<div class="container">
         <div class="row">
             <div class="col-6">
                 {% if app.user and persona %}
@@ -22,7 +24,7 @@
                     <div class="card-body">
                         Personnage niveau {{ persona.level }}.
                     </div>
-                            {#{{ persona.id }}#}
+                            #}{#{{ persona.id }}#}{#
 
                             <a href="{{ path('persona_show', {'id': persona.id}) }}" class="btn btn-primary">show</a>
                             <a href="{{ path('persona_edit', {'id': persona.id}) }}" class="btn btn-primary">edit</a>
@@ -35,7 +37,7 @@
 
             </div>
         </div>
-    </div>
+    </div>#}
 {% endblock %}
 
 

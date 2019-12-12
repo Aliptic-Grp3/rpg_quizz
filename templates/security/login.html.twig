@@ -34,12 +34,12 @@
 			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 			
 			<div class="btn-connexion">
-				<button class="btn btn-primary boutton" type="submit">Connexion</button>
+				<button class="btn btn-primary boutton" type="submit">{{ 'login'|trans }}</button>
 			</div>
 		</form>
 		
 		<div>
-			<a href="{{ path('app_register') }}" class="float-right">Inscrivez-vous.</a>
+			<a href="{{ path('app_register') }}" class="float-right">{{ 'register'|trans }}</a>
 		</div>
 	</div>
 {% endblock %}

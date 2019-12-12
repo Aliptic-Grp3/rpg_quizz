@@ -1,0 +1,33 @@
+<ul class="navbar-nav  mr-auto">
+    <li class="nav-item">
+        <a href="{{ path('app_account') }}" class="nav-link">
+            <span class="">Compte</span>
+        </a>
+    </li>
+    {% if app.user.persona is not empty %}
+        <li class="nav-item">
+            <a href="{{ path('persona_show', {'id': app.user.persona.id}) }}" class="nav-link"> {# à changer dans le controller, parce que voilà #}
+                <span class="">Personnage</span>
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span>Scores</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Score personnel</a>
+                <a class="dropdown-item" href="#">Leaderboard</a>
+            </div>
+        </li>
+    {% endif %}
+
+</ul>
+<span class="text-light mr-auto">
+        {{ 'hello'|trans }} {{ app.user.username|capitalize }},&nbsp;
+        {% if app.user.persona is not empty %}
+            votre personnage est {{ "level"|trans }} {{ app.user.persona.level }}
+        {% endif %}
+    </span>
+<div id="deuxieme_partie_menu" class="my-2 my-lg-0">
+    <a href="{{ path('app_logout') }}" class="btn btn-outline-light mx-1">{{ 'logout'|trans }}</a>
+</div>

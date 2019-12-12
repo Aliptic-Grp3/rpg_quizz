@@ -85,7 +85,7 @@ class AppLoginAuthentificatorAuthenticator extends AbstractFormLoginAuthenticato
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->urlGenerator->generate('acceuil'));
+        return new RedirectResponse($this->urlGenerator->generate('accueil'));
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
